@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+mysql-connector-python
+apache-airflow-providers-mysql
+torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+transformers
+pkg-config
+libmysqlclient-dev
+
+
