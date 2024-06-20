@@ -5,7 +5,7 @@ from airflow.operators.python_operator import PythonOperator
 from scrapers.foxnews_scraper import scrape_foxnews
 from scrapers.cnn_scraper import scrape_cnn
 from scrapers.apnews_scraper import scrape_apnews
-from scrapers.meduza_scraper import scrape_meduza
+# from scrapers.meduza_scraper import scrape_meduza
 from scrapers.pbsnewshour_scraper import scrape_pbsnewshour
 from scrapers.washingtonpost_scraper import scrape_washingtonpost
 from scrapers.washingtontimes_scraper import scrape_washingtontimes
@@ -37,10 +37,10 @@ with DAG('news_scraper', default_args=default_args, schedule_interval='@daily') 
         python_callable=scrape_apnews
     )
 
-    scrape_meduza_task = PythonOperator(
-        task_id='scrape_meduza',
-        python_callable=scrape_meduza
-    )
+    # scrape_meduza_task = PythonOperator(
+    #    task_id='scrape_meduza',
+    #    python_callable=scrape_meduza
+    # )
 
     scrape_pbsnewshour_task = PythonOperator(
         task_id='scrape_pbsnewshour',
@@ -61,9 +61,8 @@ with DAG('news_scraper', default_args=default_args, schedule_interval='@daily') 
         scrape_foxnews_task,
         scrape_cnn_task,
         scrape_apnews_task,
-        scrape_meduza_task,
+        # scrape_meduza_task,
         scrape_pbsnewshour_task,
         scrape_washingtonpost_task,
         scrape_washingtontimes_task
     )
-    
